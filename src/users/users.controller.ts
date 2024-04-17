@@ -7,10 +7,10 @@ import {Serialize} from '../interceptors/serialized.interceptor'
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current.user.decorator';
 import { User } from './users.entity';
-import { AuthGuard } from 'src/guards/auth.gard';
+import { AuthGuard } from '../guards/auth.gard';
 
 @Serialize(UserDto)
-@Controller('auth')
+@Controller('/auth')
 export class UsersController {
 
     constructor(private userService: UsersService,
