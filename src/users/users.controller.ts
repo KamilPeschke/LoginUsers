@@ -8,7 +8,6 @@ import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current.user.decorator';
 import { User } from './users.entity';
 import { AuthGuard } from '../guards/auth.gard';
-
 @Serialize(UserDto)
 @Controller('/auth')
 export class UsersController {
@@ -51,7 +50,6 @@ export class UsersController {
     // @UseInterceptors(new SerializeInterceptor(UserDto))
     @Get('/:id')
     async findUser(@Param('id')id: string){
-        // console.log('Handler is running');
         const user = await this.userService.findOne(parseInt(id));
         if(!user){
             throw new NotFoundException('User not found');
